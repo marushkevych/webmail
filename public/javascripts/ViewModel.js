@@ -21,14 +21,14 @@ var viewModel = {
 
 viewModel.selectedMail = ko.dependentObservable(function() {
     var mailIdToFind = this.selectedMailId();
-    return ko.utils.arrayFirst(viewModel.currentPageMails(), function(item) { return item.id == mailIdToFind });
+    return ko.utils.arrayFirst(viewModel.currentPageMails(), function(item) { return item._id == mailIdToFind });
 }, viewModel);
 
 ko.dependentObservable(function() {
     if (this.lastMailRequest) this.lastMailRequest.abort(); // Prevent concurrent requests
 
     // Get folder data from JSON web service and feed output into currentPageMails
-    this.lastMailRequest = $.get("http://learn.knockoutjs.com/mail/foldercontents", { folder: this.selectedFolder() }, this.currentPageMails);
+    this.lastMailRequest = $.get("/mail/foldercontents/"+ this.selectedFolder(), this.currentPageMails);
 }, viewModel);
 
 

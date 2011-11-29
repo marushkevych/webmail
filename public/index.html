@@ -3,13 +3,13 @@
 <html>
 <head>
     <title></title>
-    <script type='text/javascript' src='../jquery-1.6.4.min.js'></script>
-    <script type='text/javascript' src='../jquery.tmpl.js'></script>
-    <script type='text/javascript' src='../jquery.address.js'></script>
-    <script type='text/javascript' src='../knockout-1.2.1.debug.js'></script>
-    <script type='text/javascript' src='../knockout.address.js'></script>
-    <script type='text/javascript' src='ViewModel.js'></script>
-    <link href="webmail.css" type="text/css" rel="stylesheet">
+    <script type='text/javascript' src='/javascripts/jquery-1.6.4.min.js'></script>
+    <script type='text/javascript' src='/javascripts/jquery.tmpl.js'></script>
+    <script type='text/javascript' src='/javascripts/jquery.address.js'></script>
+    <script type='text/javascript' src='/javascripts/knockout-1.2.1.js'></script>
+    <script type='text/javascript' src='/javascripts/knockout.address.js'></script>
+    <script type='text/javascript' src='/javascripts/ViewModel.js'></script>
+    <link href="/stylesheets/webmail.css" type="text/css" rel="stylesheet">
 
 </head>
 <body>
@@ -35,7 +35,7 @@ ${$data}
 </script>
 
 <script type="text/html" id="mailsGridRow">
-    <tr data-bind="click: function() {mailViewModel.selectedMailId(id)}">
+    <tr data-bind="click: function() {mailViewModel.selectedMailId(_id)}">
         <td>${from}</td>
         <td>${to}</td>
         <td>${subject}</td>
